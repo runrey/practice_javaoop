@@ -6,10 +6,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class Connect {
+	//variables
 	private Connection con;
 	private Statement stmt;
 	private static boolean isConnected;
 	
+	//constructor and connection to database
 	public Connect(String hostname, String portname, String username, String pass, String dbName) throws SQLException, ClassNotFoundException
 	{
 		Class.forName("com.mysql.jdbc.Driver");  
@@ -18,10 +20,12 @@ public class Connect {
 		Connect.setConnected(true);
 	}
 	
+	//method to close the connection between database
 	public void closeCon() throws SQLException {
 		con.close();
 	}
 	
+	//setter and getter methods
 	public Statement getStmt() {
 		return stmt;
 	}
